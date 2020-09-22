@@ -1,0 +1,42 @@
+
+
+/** PrintTvw.DLL - An Active-X DLL that allows you to print a Tree View to a Printer */
+
+
+Author : Richard L. Ingle
+Contact : ringle@us.ibm.com
+Date : 11/2/1999
+
+
+Use :
+-  Create an object of Type CprintTvw
+- Set the tvwToPrint Property
+- Set the other Properties
+- Execute the PrintTvw Method
+
+Example : 
+
+
+dim tvwPrint as CPrintTvw
+set tvwPrint = new CPrintTvw
+
+With TvwPrint
+  .FontBold = True
+  .FontSize = 8
+  .PrintFooter = True
+  .PrintStyle = ePrintAll
+  .SecondTitle = ""
+  .SecondTitleFontBold = False
+  .SecondTitleFontSize = 8
+  .Title = "Analysis of " & Me.txtProjName.Text
+  .TitleFontBold = True
+  .TitleFontSize = 14
+  .ConnectorStyle = econnectlines
+End With
+Set TvwPrint.tvwToPrint = Me.tvwResults
+Call TvwPrint.PrintTvw
+
+Hints : You can set the printer using the Printer Dialog before calling this procedure.  Ensure that you have the PrinterDefault Property Set to True
+
+*/////
+
